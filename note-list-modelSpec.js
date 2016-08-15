@@ -13,16 +13,10 @@ function testNoteListContainsList() {
   testAnything(newNoteList.list instanceof Array, testNoteListContainsList.name);
 }
 
-// function testPrintList() {
-//   newNoteList.add('some text');
-//   testAnything(newNoteList.print().equals(['some text']), testPrintList.name);
-// }
 
 function testCreateNote() {
   newNoteList.createNote('message in the method');
   var note = new Note('message in the method');
-  console.log([note]);
-  console.log(newNoteList.print());
   testAnything(newNoteList.print().equals([note]), testCreateNote.name);
 }
 
