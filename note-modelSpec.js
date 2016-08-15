@@ -12,7 +12,7 @@ function testNoteMessage() {
 
 function testAnything(test) {
   if (test === true) {
-    console.log(test + " Test passed");
+    console.log("Test passed");
   } else {
     console.log("Test failed");
 }
