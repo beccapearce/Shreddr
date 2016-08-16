@@ -52,7 +52,7 @@ Object.prototype.equals = function(object2) {
 };
 
 
-// 
+//
 //   Array.prototype.equals = function (array) {
 //       // if the other array is a falsy value, return
 //       if (!array)
