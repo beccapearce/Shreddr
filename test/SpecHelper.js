@@ -1,3 +1,5 @@
+(function(exports) {
+
 Object.prototype.equals = function(object2) {
     //For the first loop, we only check for types
     for (propName in this) {
@@ -82,4 +84,7 @@ Object.prototype.equals = function(object2) {
 //
 //
 // module.exports = Array;
-module.exports = Object;
+// module.exports = Object;
+
+exports.Object = Object;
+})(this);

@@ -1,14 +1,19 @@
-var chalk = require('chalk');
-var SpecHelper = require('./specHelper');
+// var chalk = require('chalk');
+// var SpecHelper = require('./specHelper');
+
+(function(exports) {
+
+  function Yoda() {}
+
+  Yoda.prototype.testAnything = function(test, testName) {
+      if (test === true) {
+      console.log (("Passed " + testName + " has"));
+    } else {
+      console.log (("Failed " + testName + " has"));
+      console.log (("Patience you must have, my young padawan"));
+    }
+  };
 
 
-function testAnything(test, testName) {
-    if (test === true) {
-    console.log (chalk.green("Passed " + testName + " has"));
-  } else {
-    console.log (chalk.red("Failed " + testName + " has"));
-    console.log (chalk.yellow("Patience you must have, my young padawan"));
-  }
-}
-
-module.exports = testAnything;
+  exports.Yoda = Yoda;
+})(this);
