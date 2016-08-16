@@ -1,6 +1,7 @@
 var NoteList = require('./note-list-model.js');
 var Note = require('./note-model');
 var SpecHelper = require('./specHelper');
+var chalk = require('chalk');
 console.log("file is running");
 
 var newNoteList = new NoteList();
@@ -23,9 +24,9 @@ function testCreateNote() {
 
 function testAnything(test, testName) {
     if (test === true) {
-    console.log(testName + " Test passed");
+    console.log (chalk.green(testName + " Test passed"));
   } else {
-    console.log(testName + " Test failed");
+    console.log (chalk.red(testName + " Test failed"));
 }
 }
 

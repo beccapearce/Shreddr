@@ -1,4 +1,4 @@
-var Note = require('./note-model').note;
+var Note = require('./note-model');
 console.log("file is running");
 var newNote = new Note("Example string");
 
