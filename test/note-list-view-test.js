@@ -18,13 +18,15 @@ function testCreateNoteListView() {
 }
 
 function testRenderNoteListOne() {
-  yoda.testAnything(newNoteListView.render().equals("<ul><li><div>things that make me happy:</div></li></ul>"), testRenderNoteListOne.name);
+  yoda.testAnything(newNoteListView.render().equals("<ul><li><div>things that make me </div></li></ul>"), testRenderNoteListOne.name);
 }
 
 function testRenderNoteListSeveral() {
   newNoteList.createNote("Unicorns and Rainbows");
-  yoda.testAnything(newNoteListView.render().equals("<ul><li><div>things that make me happy:</div></li><li><div>Unicorns and Rainbows</div></li></ul>"), testRenderNoteListSeveral.name);
+  yoda.testAnything(newNoteListView.render().equals("<ul><li><div>things that make me </div></li><li><div>Unicorns and Rainbow</div></li></ul>"), testRenderNoteListSeveral.name);
 }
+
+
 
 testNoteViewObject();
 testRenderNoteListEmpty();

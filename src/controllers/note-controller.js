@@ -6,7 +6,6 @@
   var newNoteList = new NoteList();
   var newNoteListView = new NoteListView(newNoteList);
 
-  newNoteList.createNote("go team Shreddr!");
   element.innerHTML = newNoteListView.render();
 }
 
