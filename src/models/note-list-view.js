@@ -7,7 +7,7 @@
   NoteListView.prototype.render = function(){
       var returnString = "<ul>";
       for(var i=0; i<this.notes.list.length; i++){
-      returnString += "<li><div>"+ this.notes.list[i].readMessage().substring(0,20) + "</div></li>";
+      returnString += "<li><div><a href='#" + [i] + " '>" + this.notes.list[i].readMessage().substring(0,20) + "</a></div></li>";
     }
     return returnString + "</ul>";
   };
