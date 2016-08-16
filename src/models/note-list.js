@@ -1,20 +1,19 @@
-var Note = require('./note');
+// var Note = require('./note');
 
-function NoteList() {
-  this.list = [];
-}
+(function(exports) {
 
-  // NoteList.prototype.add = function(note) {
-  //   this.list.push(note);
-  // };
+  function NoteList() {
+    this.list = [];
+  }
 
-  NoteList.prototype.print = function() {
-    return this.list;
-  };
+    NoteList.prototype.print = function() {
+      return this.list;
+    };
 
-  NoteList.prototype.createNote = function(text) {
-    var note = new Note(text);
-    this.list.push(note);
-  };
+    NoteList.prototype.createNote = function(text) {
+      var note = new Note(text);
+      this.list.push(note);
+    };
 
-module.exports = NoteList;
+  exports.NoteList = NoteList;
+})(this);

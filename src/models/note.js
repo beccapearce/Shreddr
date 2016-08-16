@@ -1,9 +1,12 @@
-function Note(message) {
-  this.message = message;
-}
+(function(exports) {
 
-Note.prototype.readMessage = function() {
-  return this.message;
-};
+  function Note(message) {
+    this.message = message;
+  }
 
-module.exports = Note;
+  Note.prototype.readMessage = function() {
+    return this.message;
+  };
+
+  exports.Note = Note;
+})(this);

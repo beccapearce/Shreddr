@@ -1,14 +1,14 @@
-var Note = require('../src/models/note');
-var testAnything = require('./yoda.js');
-console.log("file is running");
+console.log("note-test");
+
 var newNote = new Note("Example string");
+var yoda = new Yoda();
 
 function testNoteObject() {
-  testAnything(typeof newNote != 'undefined', testNoteObject.name);
+  yoda.testAnything(typeof newNote != 'undefined', testNoteObject.name);
 }
 
 function testNoteMessage() {
-  testAnything(newNote.readMessage() === "Example string" && newNote.message === "Example string", testNoteMessage.name);
+  yoda.testAnything(newNote.readMessage() === "Example string" && newNote.message === "Example string", testNoteMessage.name);
 }
 
 testNoteObject();
