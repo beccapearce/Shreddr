@@ -1,7 +1,8 @@
 (function(exports) {
 
-  function Note(message) {
+  function Note(message, id) {
     this.message = message;
+    this.id = id;
   }
 
   Note.prototype.readMessage = function() {

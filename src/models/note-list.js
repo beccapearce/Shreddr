@@ -1,5 +1,3 @@
-// var Note = require('./note');
-
 (function(exports) {
 
   function NoteList() {
@@ -11,8 +9,12 @@
     };
 
     NoteList.prototype.createNote = function(text) {
-      var note = new Note(text);
+      var note = new Note(text, this.generateId());
       this.list.push(note);
+    };
+
+    NoteList.prototype.generateId = function() {
+      return this.list.length;
     };
 
   exports.NoteList = NoteList;
