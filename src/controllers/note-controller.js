@@ -1,29 +1,44 @@
 (function(exports) {
+  var notelistcontroller = new NoteList();
+  var viewdanotes = new NoteListView(notelistcontroller);
 
-  function NoteController() {
-    var notelistcontroller = new NoteList();
-    document.getElementById('submit').addEventListener('click', function() {
-      NoteController.writeNote();
+  document.getElementById('submit').addEventListener('click', function() {
+      var text = document.getElementById('notebook').value;
+      notelistcontroller.createNote(text);
+      renderNotes();
     });
-
-
-    // var newNoteListView = new NoteListView(newNoteList);
-  }
-
-
-  NoteController.prototype.writeNote = function() {
-    var text = document.getElementById('notebook').value;
-    notelistcontroller.createNote(text);
-    var viewdanotes = new NoteListView(notelistcontroller);
+  renderNotes = function() {
     var element = document.getElementById('listofnotes');
     element.innerHTML = viewdanotes.render();
-    document.getElementById('notebook').value = '';
-
+    clearTextBox();
   };
 
+  clearTextBox = function(){
+    document.getElementById('notebook').value = '';
+  };
 
+  urlChange();
 
-exports.NoteController = NoteController;
+       function urlChange() {
+         window.addEventListener("hashchange", showCurrentPageId);
+       }
+
+       function showCurrentPageId() {
+         showNote(getIdfromUrl(window.location));
+       }
+
+       function getIdfromUrl(location) {
+         return location.hash.split('#')[1];
+       }
+
+       function showNote(id) {
+       var newNoteSingleViewa = new NoteSingleView(viewdanotes.notes[id]);
+           document.getElementById("notelist");
+           document.innerHTML = newNoteSingleViewa.render();
+       }
+
+exports.NoteController = notelistcontroller;
+exports.NoteView = viewdanotes;
 
 })(this);
 
