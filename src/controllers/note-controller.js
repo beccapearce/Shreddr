@@ -1,13 +1,14 @@
 (function(exports) {
 
   function NoteController() {
-  element = document.getElementById("app");
+    var newNoteList = new NoteList();
+    var newNoteListView = new NoteListView(newNoteList);
+  }
 
-  var newNoteList = new NoteList();
-  var newNoteListView = new NoteListView(newNoteList);
-
-  element.innerHTML = newNoteListView.render();
-}
+    NoteController.prototype.renderPage = function() {
+      element = document.getElementById("app");
+      element.innerHTML = newNoteListView.render();
+    };
 
 exports.NoteController = NoteController;
 

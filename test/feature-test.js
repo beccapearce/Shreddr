@@ -1,16 +1,32 @@
 console.log("feature test");
 
 var newNoteController = new NoteController();
+var newNoteList = new NoteList();
+var newNoteListView = new NoteListView(newNoteList);
 var yoda = new Yoda();
 
-function testViewNoteList() {
-  element = document.getElementById("app");
-  var newNoteList = new NoteList();
-  newNoteList.createNote("go team Shreddr! go team Shreddr! go team Shreddr! go team Shreddr! go team Shreddr!");
-  var newNoteListView = new NoteListView(newNoteList);
-  element.innerHTML = newNoteListView.render();
 
-  yoda.testAnything(element.innerHTML.equals("<ul><li><div>go team Shreddr!</div></li></ul>"), testViewNoteList.name);
+function beforeFeatureTest() {
+  newNoteList.createNote("go team Shreddr! go team Shreddr! go team Shreddr!");
+  newNoteController.renderPage();
 }
 
-testViewNoteList();
+function testNoteListExists() {
+  yoda.testAnything(document.getElementById("app") !== null, testNoteListExists.name);
+}
+
+function testNoteListValue() {
+  yoda.testAnything(document.getElementById("app").textContent.indexOf('go team') !== -1, testNoteListValue.name);
+}
+
+function testClickNote() {
+  window.setTimeout(function () {
+  yoda.testAnything(document.getElementById('app').textContent.indexOf('go team Shreddr! go team Shreddr! go team Shreddr!') !== -1, testClickNote.name);
+  }, 1000);
+  document.getElementById("0").click();
+}
+
+beforeFeatureTest();
+testNoteListExists();
+testNoteListValue();
+testClickNote();
