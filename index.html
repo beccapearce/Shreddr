@@ -2,48 +2,52 @@
 <html>
   <head>
 
-    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
 
-    <title></title>
-  </head>
-  <body>
-    <div id="app">hello</div>
-    <script>
-      urlChange();
+<h1>Shreddr</h1>
 
-      function urlChange() {
-        window.addEventListener("hashchange", showCurrentPageId);
-      }
+      <input id="notebook" type="text"><br>
+      <input type="submit" value="Submit" id="submit">
+    </form>
 
-      function showCurrentPageId() {
-        showNote(getIdfromUrl(window.location));
-      }
+    <div id="app">hello</div>
+    <div id="listofnotes">My notes</div>
+    <script>
+      urlChange();
+      NoteController();
 
-      function getIdfromUrl(location) {
-        return location.hash.split('#')[1];
-      };
+      function urlChange() {
+        window.addEventListener("hashchange", showCurrentPageId);
+      }
 
-      function showNote(id) {
+      function showCurrentPageId() {
+        showNote(getIdfromUrl(window.location));
+      }
 
-      var newNoteSingleView = new NoteSingleView(newNoteList.list[id]);
-          document
-            .getElementById("app")
-            .innerHTML = newNoteSingleView.render();
-      }
+      function getIdfromUrl(location) {
+        return location.hash.split('#')[1];
+      };
 
-    </script>
+      function showNote(id) {
 
-    <script src="test/SpecHelper.js"></script>
-    <script src="test/yoda.js"></script>
 
-    <script src="src/models/note.js"></script>
-    <script src="src/models/note-list.js"></script>
-    <script src="src/models/note-list-view.js"></script>
-    <script src="src/models/note-single-view.js"></script>
-    <script src="src/controllers/note-controller.js"></script>
-    <script src="index.js"></script>
+      var newNoteSingleViewa = new NoteSingleView(viewdanotes.notes[id]);
+          document.getElementById("listofnotes")
+          document.innerHTML = newNoteSingleViewa.render();
+      }
 
-    <script src="test/feature-test.js"></script>
+    </script>
 
-  </body>
+    <script src="src/models/note.js"></script>
+    <script src="src/models/note-list.js"></script>
+    <script src="src/models/note-list-view.js"></script>
+    <script src="src/controllers/note-controller.js"></script>
+    <script src="src/models/note-single-view.js"></script>
+
+    <script src="index.js"></script>
+
+  </body>
 </html>
