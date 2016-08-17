@@ -5,9 +5,5 @@
     this.id = id;
   }
 
-  Note.prototype.readMessage = function() {
-    return this.message;
-  };
-
   exports.Note = Note;
 })(this);

@@ -5,7 +5,7 @@
   }
 
   NoteSingleView.prototype.render = function(){
-      return "<div>" + this.note.readMessage() + "</div>";
+      return "<div>" + this.note.message + "</div>";
 
     };
 
