@@ -3,11 +3,19 @@ require_relative 'data_mapper_setup'
 require 'json'
 
 class Server < Sinatra::Base
-  get '/notes' do
-    Note.all.to_json
+
+  before do
+    headers 'Access-Control-Allow-Origin' => '*'
   end
 
-  post '/' do
+  get '/notes' do
+    notes = Note.all
+    return notes.to_json unless notes == nil
+  end
+
+  post '/notes' do
+    puts params
+    Note.create(message: params[:message])
   end
 
 
