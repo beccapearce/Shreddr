@@ -11,6 +11,7 @@ function clickSubmit() {
       localStorage.save(localStorage.length, note);
       console.log(localStorage);
       console.log(displayall);
+      displayall.clearNotes();
       renderNotes();
     });
 }
@@ -19,6 +20,7 @@ function clickSubmit() {
     var element = document.getElementById('listofnotes');
     element.innerHTML = displayall.render();
     clearTextBox();
+
   }
 
   function clearTextBox (){
