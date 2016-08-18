@@ -1,8 +1,7 @@
 (function(exports) {
 
-  function Note(message, id) {
+  function Note(message) {
     this.message = message;
-    this.id = id;
   }
 
   exports.Note = Note;
