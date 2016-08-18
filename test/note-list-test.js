@@ -15,7 +15,7 @@ function testNoteListContainsList() {
 function testCreateNote() {
   newNoteList.createNote('message in the method');
   var note = new Note('message in the method', 0);
-  yoda.testAnything(newNoteList.print().equals([note]), testCreateNote.name);
+  yoda.testAnything(newNoteList.list.equals([note]), testCreateNote.name);
 }
 
 function testGenerateID() {

@@ -8,7 +8,7 @@ function testNoteObject() {
 }
 
 function testNoteMessage() {
-  yoda.testAnything(newNote.readMessage() === "Example string" && newNote.message === "Example string", testNoteMessage.name);
+  yoda.testAnything(newNote.message === "Example string", testNoteMessage.name);
 }
 
 function testNoteId() {

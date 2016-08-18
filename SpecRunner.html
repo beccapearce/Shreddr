@@ -1,56 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
 
-  <title>Document</title>
-</head>
-<body>
-  <div id="app">hello</div>
+  <body>
+    <h1>Shreddr</h1>
 
-  <script>
-    urlChange();
+      <input id="notebook" type="text"><br>
+      <input type="submit" value="Submit" id="submit">
+      </form>
+       <h2>My Notes:</h2>
+       <div id="listofnotes"></div>
 
-    function urlChange() {
-      window.addEventListener("hashchange", showCurrentPageId);
-    }
+      <script src="src/models/note.js"></script>
+      <script src="src/models/note-list.js"></script>
+      <script src="src/views/note-single-view.js"></script>
+      <script src="src/views/note-list-view.js"></script>
+      <script src="src/controllers/create-note.js"></script>
+      <script src="src/controllers/view-note.js"></script>
 
-    function showCurrentPageId() {
-      showNote(getIdfromUrl(window.location));
-    }
+      <script src="test/SpecHelper.js"></script>
+      <script src="test/yoda.js"></script>
+      <script src="test/note-test.js"></script>
+      <script src="test/note-list-test.js"></script>
+      <script src="test/note-list-view-test.js"></script>
+      <script src="test/note-single-view-test.js"></script>
 
-    function getIdfromUrl(location) {
-      return location.hash.split('#')[1];
-    };
-
-    function showNote(id) {
-
-    var newNoteSingleView = new NoteSingleView(newNoteList.list[id]);
-        document
-          .getElementById("app")
-          .innerHTML = newNoteSingleView.render();
-    }
-
-  </script>
-
-  <script src="test/SpecHelper.js"></script>
-  <script src="test/yoda.js"></script>
-
-  <script src="src/models/note.js"></script>
-  <script src="src/models/note-list.js"></script>
-  <script src="src/views/note-list-view.js"></script>
-  <script src="src/views/note-single-view.js"></script>
-
-  <script src="src/controllers/create-note.js"></script>
-  <script src="src/controllers/view-note.js"></script>
-
-  <script src="test/note-test.js"></script>
-  <script src="test/note-list-test.js"></script>
-  <script src="test/note-list-view-test.js"></script>
-  <script src="test/note-single-view-test.js"></script>
-  <script src="test/feature-test.js"></script>
-
-</body>
+  </body>
 </html>
