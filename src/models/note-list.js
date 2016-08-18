@@ -4,18 +4,12 @@
     this.list = [];
   }
 
-    // NoteList.prototype.print = function() {
-    //   return this.list;
-    // };
-
-    NoteList.prototype.createNote = function(text) {
-      var note = new Note(text, this.generateId());
-      this.list.push(note);
-    };
-
-    NoteList.prototype.generateId = function() {
-      return this.list.length;
-    };
+  NoteList.prototype.retrieveNoteList = function(){
+    this.list = [];
+    for(var i = 0; i < localStorage.length; i++){
+      this.list.push(localStorage.retrieve(i));
+    }
+  };
 
   exports.NoteList = NoteList;
 })(this);
