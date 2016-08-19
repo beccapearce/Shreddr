@@ -12,11 +12,12 @@
   function Storage() {
   }
 
-  Storage.prototype.saveNote = function(note){
+  Storage.prototype.saveNote = function(note, callback){
     var httprequest = new XMLHttpRequest();
     var jsonNote = JSON.stringify(note);
     httprequest.open("POST", "http://localhost:4567/notes?message=" + jsonNote);
     httprequest.send(jsonNote);
+    callback();
   };
 
   Storage.prototype.retrieveAllNotes = function() {
@@ -25,8 +26,6 @@
     httprequest.onreadystatechange = function() {
       if (httprequest.readyState == 4 && httprequest.status == 200) {
       data.push(JSON.parse(httprequest.responseText));
-      console.log(httprequest.responseText);
-      console.log(data);
       }
     };
       httprequest.open("GET", "http://localhost:4567/notes");
