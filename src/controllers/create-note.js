@@ -12,6 +12,7 @@ function clickSubmit() {
       storage.saveNote(note, function() {
         storage.retrieveAllNotes();
       });
+      clearTextBox();
       console.log(storage.retrieveAllNotes());
       // displayall.clearNotes();
       // renderNotes();
